@@ -1,4 +1,4 @@
-Code written by: Russlan Jaafreh
+# Code written by: Russlan Jaafreh
 
 
 import numpy as np
@@ -14,7 +14,7 @@ Before_Features = df.drop(['LTC','Compound'],axis = 1) ## Drop the commpound nam
 from sklearn.feature_selection import VarianceThreshold
 var_thres = VarianceThreshold(threshold=.8*(1-0.8))
 var_thres.fit(Before_Features)
-var_thres.get_support()
+var_thres.get_support() 
 constant_columns = [column for column in Before_Features.columns if column not in Before_Features.columns[var_thres.get_support()]]
 After_Variance = Before_Features.drop(constant_columns,axis=1)
 
@@ -39,7 +39,7 @@ af_both2.shape
 from sklearn.preprocessing import MinMaxScaler
 scaler = MinMaxScaler()
 df_scaled = scaler.fit_transform(af_both2)
-df_scaled = pd.DataFrame(df1_scaled)
+df_scaled = pd.DataFrame(df_scaled)
 df_scaled.columns =af_both2.columns
 
 ##Vizualizing the split
